@@ -1,0 +1,284 @@
+:root {
+  --primary: #155eef;
+  --primary-dark: #1248bd;
+  --text-main: #172b4d;
+  --text-muted: #64748b;
+  --border-color: #dbe3ef;
+  --page-bg: #f3f7fc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(21, 94, 239, 0.1),
+      transparent 35%
+    ),
+    var(--page-bg);
+  color: var(--text-main);
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+}
+
+.page-wrapper {
+  width: 100%;
+  max-width: 790px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.brand-icon {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 28px;
+  box-shadow: 0 8px 20px rgba(21, 94, 239, 0.2);
+}
+
+.brand-name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.brand-subtitle {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.form-card {
+  padding: 42px;
+  background: #fff;
+  border: 1px solid rgba(219, 227, 239, 0.9);
+  border-radius: 22px;
+  box-shadow: 0 18px 55px rgba(30, 58, 100, 0.09);
+}
+
+.section-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 18px;
+  background: #eaf1ff;
+  color: var(--primary);
+  font-size: 29px;
+}
+
+.eyebrow {
+  margin-bottom: 8px;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.form-title {
+  margin-bottom: 12px;
+  font-size: clamp(25px, 4vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.form-description {
+  margin-bottom: 0;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.form-divider {
+  height: 1px;
+  margin: 30px 0;
+  background: #e8edf5;
+}
+
+.form-label {
+  margin-bottom: 9px;
+  color: var(--text-main);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.form-label i {
+  margin-right: 7px;
+  color: var(--primary);
+  font-size: 16px;
+}
+
+.required {
+  color: #dc3545;
+}
+
+.form-control,
+.form-select {
+  min-height: 53px;
+  padding: 13px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 11px;
+  color: var(--text-main);
+  font-size: 14px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(21, 94, 239, 0.1);
+}
+
+.email-field {
+  position: relative;
+}
+
+.email-field .form-control {
+  padding-right: 48px;
+  background-color: #f1f5f9;
+  color: #475569;
+  cursor: not-allowed;
+}
+
+.email-lock {
+  position: absolute;
+  top: 50%;
+  right: 17px;
+  transform: translateY(-50%);
+  color: #64748b;
+  pointer-events: none;
+}
+
+.form-text {
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.btn-submit {
+  min-height: 54px;
+  border: none;
+  border-radius: 11px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 7px 16px rgba(21, 94, 239, 0.17);
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.btn-submit:hover {
+  background: var(--primary-dark);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-submit:focus-visible {
+  outline: 3px solid rgba(21, 94, 239, 0.35);
+  outline-offset: 3px;
+}
+
+.privacy-note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  color: var(--text-muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.privacy-note i {
+  color: #16845b;
+}
+
+.footer {
+  margin-top: 25px;
+  color: #8491a5;
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  body {
+    padding: 24px 14px;
+  }
+
+  .brand {
+    margin-bottom: 22px;
+    gap: 10px;
+  }
+
+  .brand-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 23px;
+  }
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+  .brand-subtitle {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .form-card {
+    padding: 26px 20px;
+    border-radius: 17px;
+  }
+
+  .section-icon {
+    width: 49px;
+    height: 49px;
+    border-radius: 13px;
+    font-size: 23px;
+  }
+
+  .form-title {
+    font-size: 25px;
+  }
+
+  .form-divider {
+    margin: 24px 0;
+  }
+}

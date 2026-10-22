@@ -1,0 +1,164 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Confirmação de E-mail Institucional</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+
+    
+</head>
+
+<body>
+
+    <main class="page-wrapper">
+
+        <!-- Identidade institucional -->
+        <header class="brand">
+            <div class="brand-icon">
+                <i class="bi bi-buildings-fill"></i>
+            </div>
+
+            <div>
+                <p class="brand-name">Prefeitura Municipal</p>
+                <p class="brand-subtitle">Campo Alegre · Santa Catarina</p>
+            </div>
+        </header>
+
+        <!-- Formulário -->
+        <section class="form-card">
+
+            <div class="d-flex align-items-start gap-3">
+                <div class="section-icon">
+                    <i class="bi bi-envelope-paper"></i>
+                </div>
+
+                <div>
+                    <p class="eyebrow">Levantamento institucional</p>
+
+                    <h1 class="form-title">
+                        Confirmação de e-mail
+                    </h1>
+
+                    <p class="form-description">
+                        Para mantermos nosso cadastro atualizado,
+                        informe quem é o responsável por este endereço
+                        de e-mail e a qual setor ele pertence.
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <form method="post" action="" autocomplete="on">
+                {% csrf_token %}
+
+                <!-- E-mail bloqueado para edição -->
+                <div class="mb-4">
+                    <label for="email" class="form-label">
+                        <i class="bi bi-envelope"></i>
+                        E-mail institucional
+                    </label>
+
+                    <div class="email-field">
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            value="{{ email }}"
+                            readonly
+                            aria-describedby="email-help"
+                        >
+
+                        <i class="bi bi-lock-fill email-lock"></i>
+                    </div>
+
+                    <div id="email-help" class="form-text">
+                        <i class="bi bi-info-circle me-1"></i>
+                        Este endereço foi definido para esta confirmação
+                        e não pode ser alterado.
+                    </div>
+                </div>
+
+                <!-- Responsável -->
+                <div class="mb-4">
+                    <label for="responsavel" class="form-label">
+                        <i class="bi bi-person"></i>
+                        Nome do responsável
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="responsavel"
+                        name="responsavel"
+                        placeholder="Digite o nome completo"
+                        maxlength="150"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+
+                <!-- Setor -->
+                <div class="mb-4">
+                    <label for="setor" class="form-label">
+                        <i class="bi bi-diagram-3"></i>
+                        Setor / Secretaria
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="setor"
+                        name="setor"
+                        placeholder="Ex.: Secretaria de Administração"
+                        maxlength="150"
+                        required
+                    >
+
+                    <div class="form-text">
+                        Informe o setor que utiliza este endereço
+                        institucional.
+                    </div>
+                </div>
+
+                <div class="form-divider"></div>
+
+                <button type="submit"
+                        class="btn btn-primary btn-submit w-100">
+                    <i class="bi bi-send-fill me-2"></i>
+                    Enviar informações
+                </button>
+
+            </form>
+
+            <div class="privacy-note">
+                <i class="bi bi-shield-check"></i>
+                Informações destinadas à atualização do cadastro institucional.
+            </div>
+
+        </section>
+
+        <footer class="footer">
+            Prefeitura Municipal de Campo Alegre · Santa Catarina
+        </footer>
+
+    </main>
+
+</body>
+</html>
