@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -17,8 +16,6 @@
           rel="stylesheet">
 
     <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
-
-    
 </head>
 
 <body>
@@ -36,8 +33,7 @@
             </div>
         </header>
 
-
-        <!-- Form -->
+        <!-- Formulário de confirmação -->
         <section class="form-card">
 
             <div class="d-flex align-items-start gap-3">
@@ -62,104 +58,124 @@
 
             <div class="form-divider"></div>
 
+            <!-- Mensagens de retorno -->
             {% if sucesso %}
+
                 <div class="alert alert-success" role="status">
                     <i class="bi bi-check-circle-fill me-2"></i>
                     Informações enviadas com sucesso. Obrigado pela colaboração!
                 </div>
+
             {% elif ja_respondido %}
+
                 <div class="alert alert-info" role="status">
                     <i class="bi bi-info-circle-fill me-2"></i>
                     Este e-mail já foi confirmado anteriormente.
                 </div>
+
+            {% elif link_invalido %}
+
+                <div class="alert alert-warning" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    Este link expirou ou foi invalidado.
+                    Entre em contato com o setor responsável para solicitar um novo link.
+                </div>
+
             {% elif erro %}
+
                 <div class="alert alert-danger" role="alert">
                     <i class="bi bi-exclamation-triangle-fill me-2"></i>
                     {{ erro }}
                 </div>
+
             {% endif %}
 
-            {% if not sucesso and not ja_respondido %}
-            <form method="post" autocomplete="on">
-                {% csrf_token %}
+            <!-- link válido -->
+            {% if not sucesso and not ja_respondido and not link_invalido %}
 
-                <div class="mb-4">
-                    <label for="email" class="form-label">
-                        <i class="bi bi-envelope"></i>
-                        E-mail institucional
-                    </label>
+                <form method="post" autocomplete="on">
+                    {% csrf_token %}
 
-                    <div class="email-field">
+                    <div class="mb-4">
+                        <label for="email" class="form-label">
+                            <i class="bi bi-envelope"></i>
+                            E-mail institucional
+                        </label>
+
+                        <div class="email-field">
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="email"
+                                value="{{ registro.email }}"
+                                readonly
+                                aria-describedby="email-help"
+                            >
+
+                            <i class="bi bi-lock-fill email-lock"></i>
+                        </div>
+
+                        <div id="email-help" class="form-text">
+                            <i class="bi bi-info-circle me-1"></i>
+                            Este endereço foi definido para esta confirmação
+                            e não pode ser alterado.
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="responsavel" class="form-label">
+                            <i class="bi bi-person"></i>
+                            Nome do responsável
+                            <span class="required">*</span>
+                        </label>
+
                         <input
-                            type="email"
+                            type="text"
                             class="form-control"
-                            id="email"
-                            value="{{ registro.email }}"
-                            readonly
-                            aria-describedby="email-help"
+                            id="responsavel"
+                            name="responsavel"
+                            placeholder="Digite o nome completo"
+                            maxlength="150"
+                            autocomplete="name"
+                            required
+                        >
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="setor" class="form-label">
+                            <i class="bi bi-diagram-3"></i>
+                            Setor / Secretaria
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="setor"
+                            name="setor"
+                            placeholder="Ex.: Secretaria de Administração"
+                            maxlength="150"
+                            required
                         >
 
-                        <i class="bi bi-lock-fill email-lock"></i>
+                        <div class="form-text">
+                            Informe o setor que utiliza este endereço
+                            institucional.
+                        </div>
                     </div>
 
-                    <div id="email-help" class="form-text">
-                        <i class="bi bi-info-circle me-1"></i>
-                        Este endereço foi definido para esta confirmação
-                        e não pode ser alterado.
-                    </div>
-                </div>
+                    <div class="form-divider"></div>
 
-                <div class="mb-4">
-                    <label for="responsavel" class="form-label">
-                        <i class="bi bi-person"></i>
-                        Nome do responsável
-                        <span class="required">*</span>
-                    </label>
-
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="responsavel"
-                        name="responsavel"
-                        placeholder="Digite o nome completo"
-                        maxlength="150"
-                        autocomplete="name"
-                        required
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-submit w-100"
                     >
-                </div>
+                        <i class="bi bi-send-fill me-2"></i>
+                        Enviar informações
+                    </button>
 
-                <div class="mb-4">
-                    <label for="setor" class="form-label">
-                        <i class="bi bi-diagram-3"></i>
-                        Setor / Secretaria
-                        <span class="required">*</span>
-                    </label>
+                </form>
 
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="setor"
-                        name="setor"
-                        placeholder="Ex.: Secretaria de Administração"
-                        maxlength="150"
-                        required
-                    >
-
-                    <div class="form-text">
-                        Informe o setor que utiliza este endereço
-                        institucional.
-                    </div>
-                </div>
-
-                <div class="form-divider"></div>
-
-                <button type="submit"
-                        class="btn btn-primary btn-submit w-100">
-                    <i class="bi bi-send-fill me-2"></i>
-                    Enviar informações
-                </button>
-
-            </form>
             {% endif %}
 
             <div class="privacy-note">
