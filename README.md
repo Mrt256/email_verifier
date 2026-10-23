@@ -8,7 +8,8 @@ A Django-based web system that allows email confirmation via individual links wi
 
 -----
 
-:brazil: PT/BR
+![Bandeira do Brasil](https://flagcdn.com) Brasil
+🇧🇷 PT/BR
 ## Problema:
 Necessidade de confirmar e atualizar os dados de e-mails institucionais de forma organizada e segura.
 
