@@ -1,8 +1,9 @@
 :US: EN/US
-##Problem:
+
+## Problem:
 The need to confirm and update institutional email data in an organized and secure manner.
 
-##Solution:
+## Solution:
 A Django-based web system that allows email confirmation via individual links with unique, time-sensitive tokens, as well as managing, importing, and exporting records through the administrative panel.
 
 -----
