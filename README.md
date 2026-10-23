@@ -1,4 +1,4 @@
-:US: EN/US
+🇺🇸 EN/US
 
 ## Problem:
 The need to confirm and update institutional email data in an organized and secure manner.
