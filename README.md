@@ -1,9 +1,4 @@
-![brazil](https://shields.io)
-![brasil](https://shields.io)
-
-
 🇺🇸 EN/US
-
 ## Problem:
 The need to confirm and update institutional email data in an organized and secure manner.
 
@@ -12,7 +7,7 @@ A Django-based web system that allows email confirmation via individual links wi
 
 -----
 
-![](https://shields.io) PT/BR
+🇧🇷 PT/BR
 ## Problema:
 Necessidade de confirmar e atualizar os dados de e-mails institucionais de forma organizada e segura.
 
