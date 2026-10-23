@@ -1,3 +1,7 @@
+![brazil](https://shields.io)
+![brasil](https://shields.io)
+
+
 🇺🇸 EN/US
 
 ## Problem:
@@ -8,8 +12,7 @@ A Django-based web system that allows email confirmation via individual links wi
 
 -----
 
-![Bandeira do Brasil](https://flagcdn.com) Brasil
-🇧🇷 PT/BR
+![](https://shields.io) PT/BR
 ## Problema:
 Necessidade de confirmar e atualizar os dados de e-mails institucionais de forma organizada e segura.
 
